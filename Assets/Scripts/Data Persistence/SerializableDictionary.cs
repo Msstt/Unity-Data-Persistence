@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using UnityEngine;
 
 public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable {
   public XmlSchema GetSchema() {
