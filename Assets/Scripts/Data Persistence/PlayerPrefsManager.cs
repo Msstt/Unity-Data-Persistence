@@ -10,9 +10,7 @@ public class PlayerPrefsManager {
   private static readonly PlayerPrefsManager instance = new();
 
   static public PlayerPrefsManager Instance {
-    get {
-      return instance;
-    }
+    get => instance;
   }
 
   private PlayerPrefsManager() { }
