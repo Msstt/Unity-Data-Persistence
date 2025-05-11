@@ -16,14 +16,10 @@ using UnityEngine;
 /// 2. 使用 Tool/ExcelExport 导出 cs, bytes 文件
 /// 3. 使用 BinaryDataManager.LoadData<T>() 加载数据
 /// </summary>
-public class BinaryDataManager {
+public class BinaryDataManager : Singleton<BinaryDataManager> {
   public static readonly string DATA_PATH = Application.dataPath + "/StreamingAssets/BinaryData/";
 
-  private static readonly BinaryDataManager instance = new();
-  public static BinaryDataManager Instance {
-    get => instance;
-  }
-  private BinaryDataManager() {
+  public BinaryDataManager() {
     if (!Directory.Exists(DATA_PATH)) {
       Directory.CreateDirectory(DATA_PATH);
     }

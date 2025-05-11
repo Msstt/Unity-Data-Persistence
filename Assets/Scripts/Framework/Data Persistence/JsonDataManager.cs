@@ -18,13 +18,7 @@ public enum JsonType {
 /// 2. 支持序列化 Json 数组
 /// 3. 自定义类必须有无参构造函数
 /// </summary>
-public class JsonDataManager {
-  private static readonly JsonDataManager instance = new();
-  public static JsonDataManager Instance {
-    get => instance;
-  }
-  private JsonDataManager() { }
-
+public class JsonDataManager : Singleton<JsonDataManager> {
   /// <summary>
   /// 保存数据
   /// </summary>

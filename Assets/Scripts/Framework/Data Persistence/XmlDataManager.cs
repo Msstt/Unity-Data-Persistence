@@ -10,13 +10,7 @@ using UnityEngine;
 /// 2. 存储字典使用 SerialiableDictionary
 /// 3. 请勿在类型中初始化字段
 /// </summary>
-public class XmlDataManager {
-  private static readonly XmlDataManager instance = new();
-  public static XmlDataManager Instance {
-    get => instance;
-  }
-  private XmlDataManager() { }
-
+public class XmlDataManager : Singleton<XmlDataManager> {
   /// <summary>
   /// 保存数据
   /// </summary>

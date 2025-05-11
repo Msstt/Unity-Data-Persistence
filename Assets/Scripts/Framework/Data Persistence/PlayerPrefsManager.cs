@@ -6,15 +6,7 @@ using UnityEngine;
 /// 使用 PlayerPrefs 来保存和读取数据
 /// 目前支持的类型有 int, float, string, bool, IList, IDictionary, class
 /// </summary>
-public class PlayerPrefsManager {
-  private static readonly PlayerPrefsManager instance = new();
-
-  static public PlayerPrefsManager Instance {
-    get => instance;
-  }
-
-  private PlayerPrefsManager() { }
-
+public class PlayerPrefsManager : Singleton<PlayerPrefsManager> {
   /// <summary>
   /// 保存自定义数据类型
   /// </summary>
