@@ -5,7 +5,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class JsonDataManagerTest {
+public class JsonDataMgrTest {
   public class Player {
     public int age;
     public string name;
@@ -20,7 +20,7 @@ public class JsonDataManagerTest {
     public int count;
   }
   [Test]
-  public void JsonDataManagerTestJsonUtility() {
+  public void JsonDataMgrTestJsonUtility() {
     Player player = new() {
       age = 18,
       name = "Msstt",
@@ -36,8 +36,8 @@ public class JsonDataManagerTest {
       }
     };
 
-    JsonDataManager.Instance.SaveData("Msstt", player, JsonType.JsonUtility);
-    var value = JsonDataManager.Instance.LoadData<Player>("Msstt", JsonType.JsonUtility);
+    JsonDataMgr.Instance.SaveData("Msstt", player, JsonType.JsonUtility);
+    var value = JsonDataMgr.Instance.LoadData<Player>("Msstt", JsonType.JsonUtility);
     Assert.IsNotNull(value);
     Assert.IsInstanceOf<Player>(value);
     Assert.AreEqual(18, value.age);
@@ -52,7 +52,7 @@ public class JsonDataManagerTest {
     Assert.AreEqual(3, value.items[1].count);
   }
   [Test]
-  public void JsonDataManagerTestLitJson() {
+  public void JsonDataMgrTestLitJson() {
     Player player = new() {
       age = 18,
       name = "Msstt",
@@ -68,8 +68,8 @@ public class JsonDataManagerTest {
       }
     };
 
-    JsonDataManager.Instance.SaveData("Msstt", player, JsonType.LitJson);
-    var value = JsonDataManager.Instance.LoadData<Player>("Msstt", JsonType.LitJson);
+    JsonDataMgr.Instance.SaveData("Msstt", player, JsonType.LitJson);
+    var value = JsonDataMgr.Instance.LoadData<Player>("Msstt", JsonType.LitJson);
     Assert.IsNotNull(value);
     Assert.IsInstanceOf<Player>(value);
     Assert.AreEqual(18, value.age);

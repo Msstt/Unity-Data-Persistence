@@ -4,10 +4,10 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class BinaryDataManagerTest {
+public class BinaryDataMgrTest {
   [Test]
-  public void BinaryDataManagerIntKey() {
-    PlayerInfoContainer table = BinaryDataManager.Instance.GetTable(typeof(PlayerInfo)) as PlayerInfoContainer;
+  public void BinaryDataMgrIntKey() {
+    PlayerInfoContainer table = BinaryDataMgr.Instance.GetTable(typeof(PlayerInfo)) as PlayerInfoContainer;
     Assert.IsNotNull(table);
     Assert.IsTrue(table.config.Count == 2);
     Assert.IsTrue(table.config.ContainsKey(1));
@@ -22,8 +22,8 @@ public class BinaryDataManagerTest {
     Assert.IsTrue(table.config[3].sex == false);
   }
   [Test]
-  public void BinaryDataManagerStringKey() {
-    PlayerInfo2Container table = BinaryDataManager.Instance.GetTable(typeof(PlayerInfo2)) as PlayerInfo2Container;
+  public void BinaryDataMgrStringKey() {
+    PlayerInfo2Container table = BinaryDataMgr.Instance.GetTable(typeof(PlayerInfo2)) as PlayerInfo2Container;
     Assert.IsNotNull(table);
     Assert.IsTrue(table.config.Count == 2);
     Assert.IsTrue(table.config.ContainsKey("Msstt"));

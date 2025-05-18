@@ -25,10 +25,10 @@ public class ExcelExportTool {
       Directory.CreateDirectory(CODE_PATH);
     }
     DeleteFile(CODE_PATH);
-    if (!Directory.Exists(BinaryDataManager.DATA_PATH)) {
-      Directory.CreateDirectory(BinaryDataManager.DATA_PATH);
+    if (!Directory.Exists(BinaryDataMgr.DATA_PATH)) {
+      Directory.CreateDirectory(BinaryDataMgr.DATA_PATH);
     }
-    DeleteFile(BinaryDataManager.DATA_PATH);
+    DeleteFile(BinaryDataMgr.DATA_PATH);
     string[] files = Directory.GetFiles(EXCEL_PATH);
     foreach (string file in files) {
       FileInfo fileInfo = new(file);
@@ -77,7 +77,7 @@ public class ExcelExportTool {
 
   private static void GenerateData(DataTable table) {
     string className = table.TableName;
-    string filePath = BinaryDataManager.DATA_PATH + className + ".bytes";
+    string filePath = BinaryDataMgr.DATA_PATH + className + ".bytes";
     using (FileStream stream = new(filePath, FileMode.Create, FileAccess.Write)) {
       // 行数
       WriteInt(stream, table.Rows.Count - BEGIN_ROW_INDEX);

@@ -9,13 +9,13 @@ public class EventSystemTest {
   public void EventSystemTestSimplePasses() {
     int? test = null;
     int? test2 = null;
-    EventManager.Instance.AddListener(EventType.TestEvent, (param) => {
+    EventMgr.Instance.AddListener(EventType.TestEvent, (param) => {
       test = param as int?;
     });
-    EventManager.Instance.AddListener(EventType.TestEvent, (param) => {
+    EventMgr.Instance.AddListener(EventType.TestEvent, (param) => {
       test2 = param as int?;
     });
-    EventManager.Instance.SendEvent(EventType.TestEvent, 12);
+    EventMgr.Instance.SendEvent(EventType.TestEvent, 12);
     Assert.AreEqual(12, test);
     Assert.AreEqual(12, test2);
   }

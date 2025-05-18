@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -14,12 +12,12 @@ using UnityEngine;
 ///    第四行：变量描述
 ///    第五行-：数据
 /// 2. 使用 Tool/ExcelExport 导出 cs, bytes 文件
-/// 3. 使用 BinaryDataManager.LoadData<T>() 加载数据
+/// 3. 使用 BinaryDataMgr.LoadData<T>() 加载数据
 /// </summary>
-public class BinaryDataManager : Singleton<BinaryDataManager> {
+public class BinaryDataMgr : Singleton<BinaryDataMgr> {
   public static readonly string DATA_PATH = Application.dataPath + "/StreamingAssets/BinaryData/";
 
-  public BinaryDataManager() {
+  public BinaryDataMgr() {
     if (!Directory.Exists(DATA_PATH)) {
       Directory.CreateDirectory(DATA_PATH);
     }

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine.Events;
 
-public class EventManager : Singleton<EventManager> {
+public class EventMgr : Singleton<EventMgr> {
   private readonly Dictionary<EventType, UnityAction<object>> eventDic = new();
 
   public void AddListener(EventType type, UnityAction<object> action) {

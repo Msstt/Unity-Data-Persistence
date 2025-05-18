@@ -4,22 +4,21 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class XmlDataManagerTest {
-  public struct Player {
+public class PlayerPrefsMgrTest {
+  struct Player {
     public int age;
     public string name;
     public float height;
     public bool sex;
-    public SerializableDictionary<string, Item> dict;
     public List<Item> items;
+    public Dictionary<string, Item> dict;
   }
-  public struct Item {
+  struct Item {
     public int id;
     public int count;
   }
   [Test]
-  public void XmlDataManagerTestSimplePasses() {
-    Debug.Log(Application.persistentDataPath);
+  public void PlayerPrefsMgrTestSimplePasses() {
     Player player = new() {
       age = 18,
       name = "Msstt",
@@ -29,14 +28,14 @@ public class XmlDataManagerTest {
         new() { id = 1, count = 2 },
         new() { id = 2, count = 3 }
       },
-      dict = new SerializableDictionary<string, Item> {
+      dict = new Dictionary<string, Item> {
         { "item1", new Item { id = 1, count = 2 } },
         { "item2", new Item { id = 2, count = 3 } }
       }
     };
 
-    XmlDataManager.Instance.SaveData("Msstt", player);
-    var value = XmlDataManager.Instance.LoadData("Msstt", typeof(Player));
+    PlayerPrefsMgr.Instance.SaveData("Msstt", player);
+    var value = PlayerPrefsMgr.Instance.LoadData("Msstt", typeof(Player));
     Assert.IsNotNull(value);
     Assert.IsInstanceOf<Player>(value);
     Assert.AreEqual(18, ((Player)value).age);
