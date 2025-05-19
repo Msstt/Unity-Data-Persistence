@@ -15,7 +15,7 @@ public class ObjectPool : MonoSingleton<ObjectPool> {
       obj = pool[prefabsPath][0];
       pool[prefabsPath].RemoveAt(0);
     } else {
-      obj = Object.Instantiate(Resources.Load<GameObject>(prefabsPath));
+      obj = ResourcesMgr.Instance.Load<GameObject>(prefabsPath);
       obj.name = StringUtil.GetNameFromPath(prefabsPath);
     }
     obj.transform.SetParent(parent);
