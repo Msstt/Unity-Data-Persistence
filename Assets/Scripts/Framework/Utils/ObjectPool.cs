@@ -16,7 +16,6 @@ public class ObjectPool : MonoSingleton<ObjectPool> {
       pool[prefabsPath].RemoveAt(0);
     } else {
       obj = ResourcesMgr.Instance.Load<GameObject>(prefabsPath);
-      obj.name = StringUtil.GetNameFromPath(prefabsPath);
     }
     obj.transform.SetParent(parent);
     if (obj.TryGetComponent<IPoolable>(out var poolable)) {

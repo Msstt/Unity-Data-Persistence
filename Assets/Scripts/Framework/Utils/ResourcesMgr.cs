@@ -7,6 +7,7 @@ public class ResourcesMgr : Singleton<ResourcesMgr> {
     T resource = Resources.Load<T>(path);
     if (resource is GameObject) {
       resource = Object.Instantiate(resource);
+      resource.name = StringUtils.GetNameFromPath(path);
     }
     return resource;
   }
@@ -19,7 +20,9 @@ public class ResourcesMgr : Singleton<ResourcesMgr> {
     ResourceRequest resourceRequest = Resources.LoadAsync<T>(path);
     yield return resourceRequest;
     if (resourceRequest.asset is GameObject) {
-      onLoaded?.Invoke(Object.Instantiate(resourceRequest.asset) as T);
+      var resource = Object.Instantiate(resourceRequest.asset);
+      resource.name = StringUtils.GetNameFromPath(path);
+      onLoaded?.Invoke(resource as T);
     } else {
       onLoaded?.Invoke(resourceRequest.asset as T);
     }

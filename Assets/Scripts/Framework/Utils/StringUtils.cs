@@ -1,4 +1,4 @@
-public class StringUtil {
+public static class StringUtils {
   public static string GetNameFromPath(string path) {
     if (string.IsNullOrEmpty(path)) {
       return string.Empty;
